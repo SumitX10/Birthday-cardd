@@ -161,48 +161,6 @@
             </div>
         </div>
     </div>
-<audio id="bg-music">
-  <source src="song.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<button id="music-btn" 
-        style="
-            position: relative;
-            top: -60px; /* moved button higher */
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            border: 2px solid #d12f2f;
-            border-radius: 25px;
-            padding: 10px 20px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        ">
-  Music OFF 🔈
-</button>
-
-<script>
-  const audio = document.getElementById('bg-music');
-  const btn = document.getElementById('music-btn');
-
-  let isPlaying = false;
-
-  btn.addEventListener('click', () => {
-    if (!isPlaying) {
-      audio.play().then(() => {
-        btn.textContent = "Music ON 🔊";
-        isPlaying = true;
-      }).catch((err) => {
-        console.log("Audio play failed:", err);
-      });
-    } else {
-      audio.pause();
-      btn.textContent = "Music OFF 🔈";
-      isPlaying = false;
-    }
-  });
-</script>
 
 
 
@@ -312,6 +270,7 @@
     </script>
 </body>
 </html>
+
 
 
 
