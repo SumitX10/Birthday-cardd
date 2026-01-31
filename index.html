@@ -162,10 +162,56 @@
         </div>
     </div>
 
+    <!-- Music Audio -->
+<audio id="bg-music">
+  <source src="song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Music Button -->
+<button id="music-btn" 
+        style="
+            position: fixed; /* stays on screen while scrolling */
+            top: 20px;      /* distance from top */
+            right: 20px;    /* distance from right */
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            border: 2px solid #d12f2f;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1000;   /* stays above other elements */
+        ">
+  Music OFF 🔈
+</button>
+
 
 
 
     <script>
+
+        
+  const audio = document.getElementById('bg-music');
+  const btn = document.getElementById('music-btn');
+
+  let isPlaying = false;
+
+  btn.addEventListener('click', () => {
+    if (!isPlaying) {
+      audio.play().then(() => {
+        btn.textContent = "Music ON 🔊";
+        isPlaying = true;
+      }).catch((err) => {
+        console.log("Audio play failed:", err);
+      });
+    } else {
+      audio.pause();
+      btn.textContent = "Music OFF 🔈";
+      isPlaying = false;
+    }
+  });
         let datetxt = "18 Feb";
         let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
         let titleLetter = "To you";
@@ -270,6 +316,7 @@
     </script>
 </body>
 </html>
+
 
 
 
