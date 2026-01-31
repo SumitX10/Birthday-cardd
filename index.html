@@ -162,13 +162,15 @@
         </div>
     </div>
 
-<audio id="bg-music" autoplay loop muted>
+<audio id="bg-music">
   <source src="song.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
 <button id="music-btn" onclick="toggleMusic()" 
         style="
+            position: relative;
+            top: -20px; /* move button slightly up */
             background: linear-gradient(to right, #ff7e5f, #feb47b);
             border: 2px solid #d12f2f;
             border-radius: 25px;
@@ -187,9 +189,11 @@
 
   function toggleMusic() {
     if (audio.paused) {
-      audio.muted = false;
-      audio.play();
-      btn.textContent = "Music ON 🔊";
+      audio.play().then(() => {
+        btn.textContent = "Music ON 🔊";
+      }).catch((err) => {
+        console.log("Audio play failed:", err);
+      });
     } else {
       audio.pause();
       btn.textContent = "Music OFF 🔈";
@@ -304,6 +308,7 @@
     </script>
 </body>
 </html>
+
 
 
 
