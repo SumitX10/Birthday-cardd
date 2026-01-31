@@ -163,10 +163,20 @@
     </div>
 
     <!-- Hidden background music -->
-<audio autoplay loop>
+<audio id="bg-music" autoplay loop muted>
   <source src="song.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+
+<button onclick="toggleMusic()">Play Music</button>
+
+<script>
+  function toggleMusic() {
+    const audio = document.getElementById('bg-music');
+    audio.muted = false; // unmute
+    audio.play();        // play (needed for some browsers)
+  }
+</script>
 
 
     <script>
@@ -274,4 +284,5 @@
     </script>
 </body>
 </html>
+
 
