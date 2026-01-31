@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
-    <meta name="github" content="https://github.com/Aoudumber-Bade">
     <title>Sippu Hottie Birthday</title>
 
     <link rel="stylesheet" href="style.css">
@@ -16,92 +13,92 @@
 
 <body>
 
-    <!-- 🔊 BACKGROUND MUSIC -->
-    <audio id="bgm" loop>
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgm" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <div id="wrapper">
-        <div class="flag__birthday">
-            <img src="./images/1.png" width="350" class="flag__left">
-            <img src="./images/1.png" width="350" class="flag__right">
-        </div>
+<div id="wrapper">
+    <div class="flag__birthday">
+        <img src="./images/1.png" width="350" class="flag__left">
+        <img src="./images/1.png" width="350" class="flag__right">
+    </div>
 
-        <div class="content">
-            <div class="left">
-                <div class="title">
-                    <h1 class="happy">
-                        <span style="--t: 4s;">H</span>
-                        <span style="--t: 4.2s;">a</span>
-                        <span style="--t: 4.4s;">p</span>
-                        <span style="--t: 4.6s;">p</span>
-                        <span style="--t: 4.8s;">y</span>
-                    </h1>
-                    <h1 class="birthday">
-                        <span style="--t: 5s;">B</span>
-                        <span style="--t: 5.2s;">i</span>
-                        <span style="--t: 5.4s;">r</span>
-                        <span style="--t: 5.6s;">t</span>
-                        <span style="--t: 5.8s;">h</span>
-                        <span style="--t: 6s;">d</span>
-                        <span style="--t: 6.2s;">a</span>
-                        <span style="--t: 6.4s;">y</span>
-                    </h1>
-                    <div class="hat">
-                        <img src="./images/hat.png" width="130">
-                    </div>
-                </div>
-
-                <div class="date__of__birth">
-                    <span></span>
-                </div>
-
-                <div class="btn">
-                    <button id="btn__letter">
-                        <div class="mail">
-                            Click Here Sippu baby &lt;3
-                            <i class="fa-regular fa-envelope"></i>
-                        </div>
-                    </button>
+    <div class="content">
+        <div class="left">
+            <div class="title">
+                <h1 class="happy">
+                    <span style="--t: 4s;">H</span>
+                    <span style="--t: 4.2s;">a</span>
+                    <span style="--t: 4.4s;">p</span>
+                    <span style="--t: 4.6s;">p</span>
+                    <span style="--t: 4.8s;">y</span>
+                </h1>
+                <h1 class="birthday">
+                    <span style="--t: 5s;">B</span>
+                    <span style="--t: 5.2s;">i</span>
+                    <span style="--t: 5.4s;">r</span>
+                    <span style="--t: 5.6s;">t</span>
+                    <span style="--t: 5.8s;">h</span>
+                    <span style="--t: 6s;">d</span>
+                    <span style="--t: 6.2s;">a</span>
+                    <span style="--t: 6.4s;">y</span>
+                </h1>
+                <div class="hat">
+                    <img src="./images/hat.png" width="130">
                 </div>
             </div>
 
-            <div class="right">
-                <div class="box__account">
-                    <div class="image">
-                        <img src="./images/unnamed.png">
+            <div class="date__of__birth">
+                <span></span>
+            </div>
+
+            <div class="btn">
+                <button id="btn__letter">
+                    <div class="mail">
+                        Click Here Sippu baby &lt;3
+                        <i class="fa-regular fa-envelope"></i>
                     </div>
-                    <div class="name">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>Dear Motuuuuu..</span>
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="box__account">
+                <div class="image">
+                    <img src="./images/unnamed.png">
+                </div>
+                <div class="name">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Dear Motuuuuu..</span>
+                    <i class="fa-solid fa-heart"></i>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 🎵 MUSIC + LOGIC -->
-    <script>
-        let bgmStarted = false;
+<!-- ✅ FIXED SCRIPT -->
+<script>
+    let bgmStarted = false;
+
+    document.addEventListener("DOMContentLoaded", function () {
         const audio = document.getElementById("bgm");
+        const mailBox = document.querySelector(".mail");
+        const boxmail = document.querySelector(".boxMail");
 
-        function startMusicOnce() {
-            if (!bgmStarted) {
-                audio.play().catch(() => {});
-                bgmStarted = true;
-            }
+        if (mailBox && audio) {
+            mailBox.addEventListener("click", function () {
+                if (!bgmStarted) {
+                    audio.play().catch(() => {});
+                    bgmStarted = true;
+                }
+                mailBox.classList.toggle("active");
+                if (boxmail) boxmail.classList.add("active");
+            });
         }
-
-        let mailBox = document.querySelector('.mail');
-        let boxmail = document.querySelector('.boxMail');
-
-        mailBox.onclick = function () {
-            startMusicOnce();   // 🎶 START MUSIC
-            mailBox.classList.toggle('active');
-            if (boxmail) boxmail.classList.add('active');
-        };
-    </script>
+    });
+</script>
 
 </body>
 </html>
