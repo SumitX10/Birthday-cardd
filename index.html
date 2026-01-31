@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,26 +79,30 @@
     </div>
 </div>
 
-<!-- ✅ FIXED SCRIPT -->
 <script>
-    let bgmStarted = false;
+let bgmStarted = false;
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const audio = document.getElementById("bgm");
-        const mailBox = document.querySelector(".mail");
-        const boxmail = document.querySelector(".boxMail");
+function startMusicOnce() {
+    if (bgmStarted) return;
+    const audio = document.getElementById("bgm");
+    if (audio) {
+        audio.play().catch(() => {});
+        bgmStarted = true;
+    }
+}
 
-        if (mailBox && audio) {
-            mailBox.addEventListener("click", function () {
-                if (!bgmStarted) {
-                    audio.play().catch(() => {});
-                    bgmStarted = true;
-                }
-                mailBox.classList.toggle("active");
-                if (boxmail) boxmail.classList.add("active");
-            });
-        }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    const mailBox = document.querySelector('.mail');
+    const boxmail = document.querySelector('.boxMail');
+
+    if (mailBox) {
+        mailBox.onclick = function () {
+            startMusicOnce();
+            mailBox.classList.toggle('active');
+            if (boxmail) boxmail.classList.add('active');
+        };
+    }
+});
 </script>
 
 </body>
